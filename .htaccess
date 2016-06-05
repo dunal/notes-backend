@@ -1,0 +1,8 @@
+# Apache configuration file (see httpd.apache.org/docs/2.2/mod/quickreference.html)
+
+# disable directory listing
+Options -Indexes
+
+RewriteEngine on
+RewriteRule ^notes$ notes.php
+RewriteRule ^notes/([0-9]+)$ notes.php?id=$1

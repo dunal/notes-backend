@@ -32,3 +32,47 @@ $notes = array(
         'datetime' => mktime(12, 00, 00, 01, 04, 2001),
     ),
 );
+
+
+// Данные у нас будут в формате JSON, так что сразу укажем заголовок для браузера
+header('Content-type: application/json');
+
+
+// Простенький REST
+switch ($_SERVER['REQUEST_METHOD']) {
+    // Получение данных
+    case 'GET':
+
+        if (isset($_GET['id'])) {
+            // Возвращает конкретную заметку
+            $return = reset(array_filter($notes, function($note){
+                return $note['id'] == $_GET['id'];
+            }));
+
+            // Если нет такой заметки, возвращается ошибка Not Found
+            if (empty($return)) {
+                http_response_code(404);
+                exit();
+            }
+        } else {
+            // Возвращает все заметки
+            $return = $notes;
+        }
+
+        // Выводит данные в JSON
+        echo json_encode($return, JSON_UNESCAPED_UNICODE);
+
+    // Сохранение данных
+    // Пока не делаем
+    //case 'POST':
+
+    // Удаление данных
+    // Пока не делаем
+    //case 'DELETE':
+
+    default :
+        // Возвращает ошибку Method Not Allowed
+        http_response_code(405);
+        exit();
+
+}
