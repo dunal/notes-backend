@@ -60,7 +60,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
         }
 
         // Выводит данные в JSON
-        echo json_encode($return, JSON_UNESCAPED_UNICODE);
+        echo json_encode($return);
+        break;
 
     // Сохранение данных
     // Пока не делаем
