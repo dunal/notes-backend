@@ -51,7 +51,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
             // Если нет такой заметки, возвращается ошибка Not Found
             if (empty($return)) {
-                http_response_code(404);
+                header('HTTP/1.1 404 Not Found');
                 exit();
             }
         } else {
@@ -72,7 +72,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
     default :
         // Возвращает ошибку Method Not Allowed
-        http_response_code(405);
+        header('HTTP/1.1 405 Method Not Allowed');
         exit();
 
 }
