@@ -12,7 +12,14 @@
 </head>
 <body>
 	<script type="text/javascript">
+
+		function fe() {
+           
+               alert ('Table with data');    
+        };
+
 		$(function () {
+			var $report = $('#report');
 			$('#container').highcharts({
 				chart: {
             		type: 'line',
@@ -41,11 +48,19 @@
 
 			    	plotLines: [{
 			    		
-	                	color: 'trancparent', 
+						events: {
+                            mouseover: function () {
+                        		$report.html('mouseover');
+                    		},
+                    		mouseout: function () {
+                        		$report.html('mouseout');
+                    		}
+                        },
+			    		color: 'trancparent', 
 	                	width: 1,
 	                	value: 0,
 						label: {
-	                    text: '<span class="notesMarker">300</span>',
+	                    text: '<span class="notesMarker" onclick="fe()">300</span>',
 	                    verticalAlign: 'bottom',
 	                    textAlign: 'center',
 	                    rotation: '0',
@@ -60,13 +75,14 @@
 	                	width: 1,
 	                	value: 5.5,
 						label: {
-	                    text: '<span class="notesMarker">37</span>',
+	                    text: '<span class="notesMarker" onclick="fe()">37</span>',
 	                    verticalAlign: 'bottom',
 	                    textAlign: 'center',
 	                    rotation: '0',
 	                    useHTML: true,
 	                    y: 10,
-	                    x: 0
+	                    x: 0,
+
 	                	}
             		},
             		{
@@ -75,7 +91,7 @@
 	                	width: 1,
 	                	value: 7,
 						label: {
-	                    text: '<span class="notesMarker">0</span>',
+	                    text: '<span class="notesMarker" onclick="fe()">0</span>',
 	                    verticalAlign: 'bottom',
 	                    textAlign: 'center',
 	                    rotation: '0',
@@ -131,5 +147,6 @@
 	</script>
 
 	<div id="container" class="ChartContainer"></div>
+	<div id="report"></div>
 </body>
 </html>
