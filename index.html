@@ -32,6 +32,7 @@
 			    xAxis: {
 			    	categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
 			    	'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec','Jan','Feb'],
+			    	tickmarkPlacement: 'on',
 			    	
 			    	labels: {
                 		enabled: true,
@@ -39,11 +40,12 @@
                 	},
 
 			    	plotLines: [{
-	                	color: 'transparent', 
+			    		
+	                	color: 'trancparent', 
 	                	width: 1,
-	                	value: 6,
-	                	label: {
-	                    text: '<span class="notesMarker"> </span>',
+	                	value: 0,
+						label: {
+	                    text: '<span class="notesMarker">300</span>',
 	                    verticalAlign: 'bottom',
 	                    textAlign: 'center',
 	                    rotation: '0',
@@ -51,7 +53,42 @@
 	                    y: 10,
 	                    x: 0
 	                	}
-            		}]
+            		},
+            		{
+			    		
+	                	color: 'trancparent', 
+	                	width: 1,
+	                	value: 5.5,
+						label: {
+	                    text: '<span class="notesMarker">37</span>',
+	                    verticalAlign: 'bottom',
+	                    textAlign: 'center',
+	                    rotation: '0',
+	                    useHTML: true,
+	                    y: 10,
+	                    x: 0
+	                	}
+            		},
+            		{
+			    		
+	                	color: 'trancparent', 
+	                	width: 1,
+	                	value: 7,
+						label: {
+	                    text: '<span class="notesMarker">0</span>',
+	                    verticalAlign: 'bottom',
+	                    textAlign: 'center',
+	                    rotation: '0',
+	                    useHTML: true,
+	                    y: 10,
+	                    x: 0
+	                	}
+            		}
+            		],
+
+            	
+
+
 			    },
 			    yAxis: {
 			    	title: {
